@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta de Novios</title>
+    <style>
+        body {
+            background: url('corazones.jpg') center/cover no-repeat;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: black;
+        }
+
+        #botones {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #no {
+            color: red;
+        }
+
+        #no-text {
+            animation: moveNo 2s linear infinite;
+        }
+
+        #si {
+            color: pink;
+        }
+
+        @keyframes moveNo {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Somos novios? :3</h1>
+    <div id="botones">
+        <button id="si">Sí</button>
+        <button id="no"><span id="no-text">No</span></button>
+    </div>
+    <video id="video" autoplay controls>
+        <source src="lol.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de videos.
+    </video>
+    <script>
+        document.getElementById("no").addEventListener("click", function() {
+            var video = document.getElementById("video");
+            video.style.display = "block";
+            video.play();
+        });
+
+        document.getElementById("si").addEventListener("click", function() {
+            var video = document.getElementById("video");
+            video.src = "loveyou.mp4";
+            video.style.display = "block";
+            video.play();
+        });
+    </script>
+</body>
+</html>
